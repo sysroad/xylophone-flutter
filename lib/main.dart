@@ -21,6 +21,14 @@ class XylophoneApp extends StatelessWidget {
     );
   }
 
+  List<Widget> buildButtons(List<Color> colors) {
+    List<Widget> buttons = List<Widget>();
+    for (int i = 0; i < colors.length; ++i) {
+      buttons.add(createButton(colors[i], i + 1));
+    }
+    return buttons;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,15 +37,15 @@ class XylophoneApp extends StatelessWidget {
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              createButton(Colors.red, 1),
-              createButton(Colors.orange, 2),
-              createButton(Colors.yellow, 3),
-              createButton(Colors.green, 4),
-              createButton(Colors.teal, 5),
-              createButton(Colors.blue, 6),
-              createButton(Colors.purple, 7),
-            ],
+            children: buildButtons(<Color>[
+              Colors.red,
+              Colors.orange,
+              Colors.yellow,
+              Colors.green,
+              Colors.teal,
+              Colors.blue,
+              Colors.purple,
+            ]),
           ),
         ),
       ),
